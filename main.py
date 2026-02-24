@@ -13,12 +13,16 @@ def f(x: float):
 
 
 def g(x: float):
-    return None if x == 7 else 1 / (x - 7)
+    return 1 / (x - 7)
 
 
 def calculate_result(x, n):
     """
     Примеры:
+    >>> g(7)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
 
     >>> calculate_result(0, 5)  # x < n, sin(0) = 0.0
     0.0
@@ -62,8 +66,6 @@ def calculate_result(x, n):
 
 def main():
     try:
-        print("Введите x:")
-        x = float(input())
         print("Введите n1:")
         n1 = float(input())
         print("Введите n2:")

@@ -1,6 +1,6 @@
 import unittest
 import math
-from main import calculate_result
+from main import calculate_result, g
 
 
 class TestCompositeFunction(unittest.TestCase):
@@ -22,6 +22,11 @@ class TestCompositeFunction(unittest.TestCase):
         self.assertIsNone(calculate_result(7, 7))
         # n = 7, x < 7 -> левая ветка
         self.assertAlmostEqual(calculate_result(6, 7), math.sin(6))
+
+    def test_discontinuity1(self):
+        self.assertRaises(ZeroDivisionError, g, 7)
+        with self.assertRaises(ZeroDivisionError):
+            g(7)
 
     def test_discontinuity(self):
         """Проверка точки разрыва x = 7."""
