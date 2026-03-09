@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+*.cover
+.coverage.xml
+
+# IDE
+.vscode/
+.idea/
+
+# Matplotlib cache
+.matplotlib/
