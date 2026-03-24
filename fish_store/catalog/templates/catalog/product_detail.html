@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2c3e50; }
+        .product-detail { border: 1px solid #ddd; border-radius: 5px; padding: 15px; max-width: 600px; }
+        .product-detail p { margin: 8px 0; }
+        .back-link { margin-top: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="{% url 'catalog:product_list' %}">Главная</a>
+        <a href="{% url 'catalog:about' %}">О сервисе</a>
+    </div>
+    <div class="product-detail">
+        <h1>{{ product.name }}</h1>
+        <p><strong>Вид:</strong> {{ product.get_kind_display }}</p>
+        <p><strong>Свежесть:</strong> {% if product.is_fresh %}Свежая{% else %}Замороженная{% endif %}</p>
+        <p><strong>Вес:</strong> {{ product.weight_grams }} г</p>
+        <p><strong>Цена за кг:</strong> {{ product.price_per_kg }} руб.</p>
+        <p><strong>Общая стоимость:</strong> {{ product.total_price|floatformat:2 }} руб.</p>
+        {% if product.country %}
+            <p><strong>Страна:</strong> {{ product.country }}</p>
+        {% endif %}
+        {% if product.quality_rating %}
+            <p><strong>Оценка качества:</strong> {{ product.quality_rating }}/5</p>
+        {% endif %}
+    </div>
+    <div class="back-link">
+        <a href="{% url 'catalog:product_list' %}">← Назад к списку</a>
+    </div>
+</body>
+</html>
